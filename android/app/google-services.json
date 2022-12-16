@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "805793447627",
+    "project_id": "dw-app-movies-805c5",
+    "storage_bucket": "dw-app-movies-805c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805793447627:android:40b2777e372bc3c56c654e",
+        "android_client_info": {
+          "package_name": "com.example.app_dw_movies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805793447627-d0gctompn92tsmmubh3sinur9ukf7h57.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.app_dw_movies",
+            "certificate_hash": "e6d0e557992359d16d2937e43c6264a31127351a"
+          }
+        },
+        {
+          "client_id": "805793447627-becgnhbu41e1mu3eipcqqce9usdn5hl0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA-ARSNTcx1BnuLWjJbTphu2cI7j44p20"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805793447627-becgnhbu41e1mu3eipcqqce9usdn5hl0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
