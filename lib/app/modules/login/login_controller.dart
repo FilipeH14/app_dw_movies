@@ -1,11 +1,18 @@
+import 'dart:developer';
+
+import 'package:app_dw_movies/app/services/login/login_service.dart';
 import 'package:get/get.dart';
 
 import 'package:app_dw_movies/application/ui/loader/loader_mixin.dart';
 import 'package:app_dw_movies/application/ui/messages/messages_mixins.dart';
 
 class LoginController extends GetxController with LoaderMixin, MessagesMixins {
+  final LoginService _loginService;
   final loading = false.obs;
   final message = Rxn<MessageModel>();
+
+  LoginController({required LoginService loginService})
+      : _loginService = loginService;
 
   @override
   void onInit() {
@@ -15,18 +22,22 @@ class LoginController extends GetxController with LoaderMixin, MessagesMixins {
   }
 
   Future<void> login() async {
-    loading(true);
-    // await Future.delayed(const Duration(seconds: 2));
-    await 2.seconds.delay();
-    loading(false);
-    message(
-      MessageModel.error(
-          title: 'Ocorreu um erro', message: 'Ops!! ocorreu um erro'),
-    );
-    await 1.seconds.delay();
-    message(
-      MessageModel.info(
-          title: 'Sucesso', message: 'Operação feita com sucesso!'),
-    );
+    try {
+      loading(true);
+      await _loginService.login();
+      loading(false);
+      message(
+        MessageModel.info(
+            title: 'Sucesso', message: 'Login efetuado com sucesso'),
+      );
+    } catch (e, s) {
+      print(e);
+      print(s);
+      loading(false);
+      message(
+        MessageModel.error(
+            title: ' Login error', message: 'Erro ao realizar login'),
+      );
+    }
   }
 }

@@ -1,5 +1,6 @@
 import 'package:app_dw_movies/app/modules/login/login_module.dart';
 import 'package:app_dw_movies/app/modules/splash/splash_module.dart';
+import 'package:app_dw_movies/application/bindings/applications_bindindings.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+      initialBinding: ApplicationsBindindings(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
