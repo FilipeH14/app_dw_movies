@@ -1,3 +1,4 @@
+import 'package:app_dw_movies/application/ui/filmes_app_ui_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,12 +24,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: FilmesAppUiConfig.title,
       debugShowCheckedModeBanner: false,
       initialBinding: ApplicationsBindindings(),
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: FilmesAppUiConfig.theme,
       getPages: [
         ...SplashModule().routers,
         ...LoginModule().routers,
