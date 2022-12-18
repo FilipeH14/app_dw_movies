@@ -1,13 +1,20 @@
+import 'package:app_dw_movies/app/modules/movies/widgets/movies_filters.dart';
+import 'package:app_dw_movies/app/modules/movies/widgets/movies_header.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MoviesPage extends StatelessWidget {
   const MoviesPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Estou na movie page'),
+    return SizedBox(
+      height: Get.height,
+      child: ListView(
+        children: const [
+          MoviesHeader(),
+          MoviesFilters(),
+        ],
       ),
     );
   }
