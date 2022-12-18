@@ -6,8 +6,13 @@ class FavoritesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('favorites pages')),
-      body: Container(),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Text('Favoritos'),
+      ),
+      body: const Center(
+        child: Text('Estou na favorites page'),
+      ),
     );
   }
 }
