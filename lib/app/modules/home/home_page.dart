@@ -1,5 +1,6 @@
 import 'package:app_dw_movies/app/modules/favorites/favorites_page.dart';
 import 'package:app_dw_movies/app/modules/home/home_controller.dart';
+import 'package:app_dw_movies/app/modules/movies/movies_binding.dart';
 import 'package:app_dw_movies/app/modules/movies/movies_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,6 +21,7 @@ class HomePage extends GetView<HomeController> {
           if (settings.name == '/movies') {
             return GetPageRoute(
               settings: settings,
+              binding: MoviesBinding(),
               page: () => const MoviesPage(),
             );
           }
