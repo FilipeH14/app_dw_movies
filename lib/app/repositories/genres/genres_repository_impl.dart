@@ -15,13 +15,15 @@ class GenresRepositoryImpl implements GenresRepository {
   Future<List<GenreModel>> getGenres() async {
     final result = await _restClient.get<List<GenreModel>>(
       '/genre/movie/list',
-      query: {'api_key': FirebaseRemoteConfig.instance.getString('api_token')},
+      query: {'api_key': FirebaseRemoteConfig.instance.getString('api_token')}, 
       decoder: (data) {
         final resultData = data['genres'];
+
         if (resultData != null) {
           return resultData
               .map<GenreModel>((g) => GenreModel.fromMap(g))
               .toList();
+              
         }
 
         return <GenreModel>[];

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class GenreModel {
-  final String id;
+  final int id;
   final String name;
     
   GenreModel({
@@ -19,7 +19,7 @@ class GenreModel {
 
   factory GenreModel.fromMap(Map<String, dynamic> map) {
     return GenreModel(
-      id: map['id'] as String,
+      id: map['id'] as int,
       name: map['name'] as String,
     );
   }
