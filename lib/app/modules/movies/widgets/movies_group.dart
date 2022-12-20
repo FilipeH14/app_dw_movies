@@ -1,3 +1,4 @@
+import 'package:app_dw_movies/application/ui/widgets/movie_card.dart';
 import 'package:flutter/material.dart';
 
 class MoviesGroup extends StatelessWidget {
@@ -20,6 +21,7 @@ class MoviesGroup extends StatelessWidget {
             title,
             style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
+          const MovieCard(),
         ],
       ),
     );
