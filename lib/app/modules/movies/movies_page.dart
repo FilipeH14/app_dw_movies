@@ -16,6 +16,7 @@ class MoviesPage extends StatelessWidget {
           MoviesHeader(),
           MoviesFilters(),
           MoviesGroup(title: 'Mais populares'),
+          MoviesGroup(title: 'Top filmes'),
         ],
       ),
     );

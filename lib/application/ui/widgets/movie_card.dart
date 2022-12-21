@@ -1,3 +1,4 @@
+import 'package:app_dw_movies/application/ui/filmes_app_icons.dart';
 import 'package:flutter/material.dart';
 
 class MovieCard extends StatelessWidget {
@@ -6,29 +7,70 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // padding: const EdgeInsets.all(8),
       height: 280,
-      width: 148,
+      width: 150,
       child: Stack(
         children: [
-          Column(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                clipBehavior: Clip.antiAlias,
-                child: Image.network(
-                    'https://upload.wikimedia.org/wikipedia/pt/6/63/Joker_%282019%29.jpg'),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Coringa',
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Material(
+                  elevation: 2,
+                  borderRadius: BorderRadius.circular(20),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    clipBehavior: Clip.antiAlias,
+                    child: Image.network(
+                      'https://upload.wikimedia.org/wikipedia/pt/6/63/Joker_%282019%29.jpg',
+                      width: 148,
+                      height: 184,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
+                const SizedBox(height: 20),
+                const Text(
+                  'Coringa',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
+                const Text(
+                  '2019',
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 75,
+            right: -3,
+            child: Material(
+              elevation: 5,
+              shape: const CircleBorder(),
+              clipBehavior: Clip.antiAlias,
+              child: SizedBox(
+                height: 30,
+                child: IconButton(
+                  iconSize: 13,
+                  icon: const Icon(
+                    FilmesAppIcons.heart,
+                    color: Colors.grey,
+                  ),
+                  onPressed: () {},
+                ),
               ),
-            ],
+            ),
           ),
         ],
       ),

@@ -21,7 +21,15 @@ class MoviesGroup extends StatelessWidget {
             title,
             style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-          const MovieCard(),
+          SizedBox(
+            height: 280,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+              itemBuilder: (context, index) => const MovieCard(),
+            ),
+          ),
         ],
       ),
     );
