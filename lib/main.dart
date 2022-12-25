@@ -1,3 +1,4 @@
+import 'package:app_dw_movies/app/modules/movie_detail/movie_detail_module.dart';
 import 'package:app_dw_movies/application/ui/filmes_app_ui_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         ...SplashModule().routers,
         ...LoginModule().routers,
         ...HomeModule().routers,
+        ...MovieDetailModule().routers,
       ],
     );
   }
