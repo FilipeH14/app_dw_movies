@@ -18,8 +18,8 @@ class MoviesController extends GetxController with MessagesMixins {
   final popularMovies = <MovieModel>[].obs;
   final topRatedMovies = <MovieModel>[].obs;
 
-  final _popularMoviesOriginal = <MovieModel>[];
-  final _topRatedMoviesOriginal = <MovieModel>[];
+  var _popularMoviesOriginal = <MovieModel>[];
+  var _topRatedMoviesOriginal = <MovieModel>[];
 
   MoviesController({
     required GenresService genresService,
@@ -44,16 +44,36 @@ class MoviesController extends GetxController with MessagesMixins {
       final topRatedMoviesData = await _moviesService.getTopRated();
 
       popularMovies.assignAll(popularMoviesData);
-      topRatedMovies.assignAll(topRatedMoviesData);
+      _popularMoviesOriginal = popularMoviesData;
 
+      topRatedMovies.assignAll(topRatedMoviesData);
+      _topRatedMoviesOriginal = topRatedMoviesData;
     } catch (e, s) {
       log('$e');
       log('$s');
-      
+
       _message(MessageModel.error(
         title: 'Erro',
         message: 'Erro ao carregar dados da página',
       ));
+    }
+  }
+
+  void filterByName(String title) {
+    if (title.isNotEmpty) {
+      var newPopularMovies = _popularMoviesOriginal.where(
+        (movie) => movie.title.toLowerCase().contains(title.toLowerCase()),
+      );
+
+      var newTopRatedMovies = _topRatedMoviesOriginal.where(
+        (movie) => movie.title.toLowerCase().contains(title.toLowerCase()),
+      );
+
+      popularMovies.assignAll(newPopularMovies);
+      topRatedMovies.assignAll(newTopRatedMovies);
+    } else {
+      popularMovies.assignAll(_popularMoviesOriginal);
+      topRatedMovies.assignAll(_topRatedMoviesOriginal);
     }
   }
 }
