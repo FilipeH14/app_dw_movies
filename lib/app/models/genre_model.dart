@@ -19,9 +19,13 @@ class GenreModel {
 
   factory GenreModel.fromMap(Map<String, dynamic> map) {
     return GenreModel(
-      id: map['id'] as int,
-      name: map['name'] as String,
+      id: map['id'] ?? 0,
+      name: map['name'] ?? '',
     );
+    // return GenreModel(
+    //   id: map['id'] as int,
+    //   name: map['name'] as String,
+    // );
   }
 
   String toJson() => json.encode(toMap());
